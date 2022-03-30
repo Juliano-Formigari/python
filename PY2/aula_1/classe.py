@@ -64,7 +64,7 @@ class Veiculo:
                 print(self.subirMarcha())
             elif self.velocidade > 100 and self.velocidade < 120 and self.marcha < 4:
                 print(self.subirMarcha())                
-            elif self.velocidade < self.VelMaxima and self.velocidade >= 140 and self.marcha < 5:
+            elif self.velocidade < self.velocidadeMaxima and self.velocidade >= 140 and self.marcha < 5:
                 print(self.subirMarcha())
             return 'Velocidade atual: ' + str(self.velocidade)
         return 'O carro precisa estar ligado para acelerar'
