@@ -27,6 +27,7 @@ MSG_SEM_CONTA_POUPANCA = 'Não há constas poupanças cadastradas!'
 MSG_SEM_CONTA_SALARIO = 'Não há constas salários cadastradas!'
 
 MSG_NUMERO_CONTA = 'Informe o número da conta: '
+MSG_NUMERO_CONTA_DESTINO = 'Informe o número da conta de destino: '
 
 MSG_OPCAO_INVALIDA = 'Opção inválida!'
 MSG_EXIT_SISTEMA = 'Obrigado por usar o sistema!'

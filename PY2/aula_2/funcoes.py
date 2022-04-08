@@ -86,3 +86,14 @@ def existeContaCadastrada(pConta, pTipoConta):
             print(cons.MSG_SEM_CONTA_SALARIO)
     return len(pConta) > 0
 
+def existeSaldo(pNumero, pConta,pTipoConta, pValorOperacao):
+    temSaldo = True
+    if pTipoConta == 1:
+        if (pValorOperacao + (pValorOperacao * 0.05) > pConta[pNumero]):
+            temSaldo = False
+    if pTipoConta in [2,3]:
+        if (pValorOperacao > pConta[pNumero]):
+            temSaldo = False
+    if (not temSaldo):
+        print(cons.MSG_SALDO_INSUFICIENTE)
+    return temSaldo 
