@@ -31,7 +31,7 @@ CREATE TABLE `conta_corrente` (
   `id_conta_corrente` int NOT NULL,
   `numero_conta_corrente` varchar(5) NOT NULL,
   `saldo_conta_corrente` decimal(5,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -43,7 +43,7 @@ CREATE TABLE `conta_poupanca` (
   `id_conta_poupanca` int NOT NULL,
   `numero_conta_poupanca` varchar(5) NOT NULL,
   `saldo_conta_poupanca` decimal(5,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -55,7 +55,7 @@ CREATE TABLE `conta_salario` (
   `id_conta_salario` int NOT NULL,
   `numero_conta_salario` varchar(5) NOT NULL,
   `saldo_conta_salario` decimal(5,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tabelas despejadas

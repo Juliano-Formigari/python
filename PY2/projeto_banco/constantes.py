@@ -36,3 +36,5 @@ MSG_ERRO_CONTA = 'Número inválido! Qtd. digítos necessário: ' + str(TAMANHO_
 
 MSG_OPCOES_TIPOS_CONTAS = 'Informe a opção desejada: 1 - Conta Corrente | 2 - Conta Poupança | 3 - Conta Salário \n'
 MSG_OPCOES_TIPOS_CONTAS_LISTAGEM = 'Informe a opção desejada: 1 - Conta Corrente | 2 - Conta Poupança | 3 - Conta Salário | 4 - Todas \n'
+
+MSG_ERRO_CONEXAO_BD = 'Não está conectado ao banco de dados!'
