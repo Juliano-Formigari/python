@@ -10,6 +10,9 @@ def cadastra_estado(request):
 def altera_estado(request):
     return render(request, 'altera_estado.html')
 
+def exclui_estado(request):
+    return render(request, 'exclui_estado.html')
+
 def lista_cidades(request):
     return render(request, 'lista_cidades.html')
 
@@ -18,3 +21,6 @@ def cadastra_cidade(request):
 
 def altera_cidade(request):
     return render(request, 'altera_cidade.html')
+
+def exclui_cidade(request):
+    return render(request, 'exclui_cidade.html')

@@ -16,15 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from testeView.views import retornaRequest, exibeTabela, Inicio, Contato
+
 from Pessoa.views import lista_tp_pessoa, lista_fornecedores, lista_clientes, lista_usuarios
 from Pessoa.views import cadastra_tp_pessoa, cadastra_fornecedor, cadastra_cliente, cadastra_usuario
 from Pessoa.views import altera_tp_pessoa, altera_fornecedor, altera_cliente, altera_usuario
+from Pessoa.views import exclui_tp_pessoa, exclui_fornecedor, exclui_cliente, exclui_usuario
+
 from Item.views import lista_categorias, lista_itens
 from Item.views import cadastra_categoria, cadastra_item
 from Item.views import altera_categoria, altera_item
+from Item.views import exclui_categoria, exclui_item
+
 from Local.views import lista_cidades, lista_estados
 from Local.views import cadastra_cidade, cadastra_estado
 from Local.views import altera_cidade, altera_estado
+from Local.views import exclui_cidade, exclui_estado
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,28 +39,36 @@ urlpatterns = [
     path('inicio', Inicio),
     path('contato', Contato),
     path('lista-tipos-pessoa', lista_tp_pessoa),
-    path('cadastra_tp_pessoa', cadastra_tp_pessoa),
-    path('altera_tp_pessoa', altera_tp_pessoa),
+    path('cadastra-tp-pessoa', cadastra_tp_pessoa),
+    path('altera-tp-pessoa', altera_tp_pessoa),
+    path('exclui-tp-pessoa', exclui_tp_pessoa),
     path('lista-fornecedores', lista_fornecedores),
-    path('cadastra_fornecedor', cadastra_fornecedor),
-    path('altera_fornecedor', altera_fornecedor),
+    path('cadastra-fornecedor', cadastra_fornecedor),
+    path('altera-fornecedor', altera_fornecedor),
+    path('exclui-fornecedor', exclui_fornecedor),
     path('lista-clientes', lista_clientes),
-    path('cadastra_cliente', cadastra_cliente),
-    path('altera_cliente', altera_cliente),
+    path('cadastra-cliente', cadastra_cliente),
+    path('altera-cliente', altera_cliente),
+    path('exclui-cliente', exclui_cliente),
     path('lista-usuarios', lista_usuarios),
-    path('cadastra_usuario', cadastra_usuario),
-    path('altera_usuario', altera_usuario),
+    path('cadastra-usuario', cadastra_usuario),
+    path('altera-usuario', altera_usuario),
+    path('exclui-usuario', exclui_usuario),
     path('lista-categorias', lista_categorias),
-    path('cadastra_categoria', cadastra_categoria),
-    path('altera_categoria', altera_categoria),
+    path('cadastra-categoria', cadastra_categoria),
+    path('altera-categoria', altera_categoria),
+    path('exclui-categoria', exclui_categoria),
     path('lista-itens', lista_itens),
-    path('cadastra_item', cadastra_item),
-    path('altera_item', altera_item),
-    path('lista-cidades', lista_cidades),
-    path('cadastra_cidade', cadastra_cidade),
-    path('altera_cidade', altera_cidade),
+    path('cadastra-item', cadastra_item),
+    path('altera-item', altera_item),
+    path('exclui-item', exclui_item),
     path('lista-estados', lista_estados),
-    path('cadastra_estado', cadastra_estado),
-    path('altera_estado', altera_estado),
+    path('cadastra-estado', cadastra_estado),
+    path('altera-estado', altera_estado),
+    path('exclui-estado', exclui_estado),
+    path('lista-cidades', lista_cidades),
+    path('cadastra-cidade', cadastra_cidade),
+    path('altera-cidade', altera_cidade),
+    path('exclui-cidade', exclui_cidade),
     path('', Inicio),
 ]

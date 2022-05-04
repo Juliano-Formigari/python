@@ -9,6 +9,9 @@ def cadastra_categoria(request):
 
 def altera_categoria(request):
     return render(request, 'altera_categoria.html')
+
+def exclui_categoria(request):
+    return render(request, 'exclui_categoria.html')
     
 def lista_itens(request):
     return render(request, 'lista_itens.html')
@@ -18,3 +21,6 @@ def cadastra_item(request):
 
 def altera_item(request):
     return render(request, 'altera_item.html')
+
+def exclui_item(request):
+    return render(request, 'exclui_item.html')
