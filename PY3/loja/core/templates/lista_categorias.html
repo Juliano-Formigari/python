@@ -13,6 +13,7 @@
         <button class="btn btn-primary" onclick="location.href='cadastra-categoria'">Novo</button>
     </div>
     <div class="container mt-4">
+        {% if total > 0 %}
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -21,21 +22,26 @@
                 </tr>
             </thead>
             <tbody>
+                {% for categoria in categorias %}
                 <tr>
-                    <td>&nbsp;</td>
+                    <td>{{ categoria.nome }}</td>
                     <td class="text-center">
                         <button class="btn btn-warning" onclick="location.href='altera-categoria'">Alterar</button>
                         <button class="btn btn-danger" onclick="location.href='exclui-categoria'">Excluir</button>
                     </td>
                 </tr>
+                {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="2">
-                        <label>Total de registros: 0</label>
+                        <label>Total de registros: {{ total }}</label>
                     </td>
                 </tr>
             </tfoot>
         </table>
+        {% else %}
+        {% include 'sem_item_cadastrado.html' %}
+        {% endif %}
     </div>
 {% endblock %}

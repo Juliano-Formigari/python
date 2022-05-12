@@ -1,10 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from .forms import FormEstado, FormCidade
+from .models import Estado, Cidade
 
 # Create your views here.
 def lista_estados(request):
-    return render(request, 'lista_estados.html')
+    estado = Estado.objects.all()
+    total = estado.count
+    return render(request, 'lista_estados.html', {'estado' : estado, 'total' : total})
 
 def cadastra_estado(request):
+    if request.method == 'POST':
+        form = FormEstado(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect(lista_estados)
     return render(request, 'cadastra_estado.html')
 
 def altera_estado(request):
@@ -14,10 +23,18 @@ def exclui_estado(request):
     return render(request, 'exclui_estado.html')
 
 def lista_cidades(request):
-    return render(request, 'lista_cidades.html')
+    cidades = Cidade.objects.all()
+    total = cidades.count
+    return render(request, 'lista_cidades.html', {'cidades' : cidades, 'total': total})
 
 def cadastra_cidade(request):
-    return render(request, 'cadastra_cidade.html')
+    estado = Estado.objects.all()
+    if request.method == 'POST':
+        form = FormCidade(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect(lista_cidades)
+    return render(request, 'cadastra_cidade.html', {'estados' : estado})
 
 def altera_cidade(request):
     return render(request, 'altera_cidade.html')

@@ -4,7 +4,8 @@
 
 {% block corpo %}
     <div class="form-control">
-        <form action="#">
+        <form method="post">
+            {% csrf_token %}
             <div class="text-center">
                 <h3>
                     <label class="text-primary">Cadastro de Cidade</label>
@@ -12,14 +13,16 @@
             </div>
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" maxlength="50" required>
+                <input type="text" class="form-control" name="nome" id="nome" maxlength="50" required>
             </div>
             <div class="mb-3">
                 <label for="estado" class="form-label">Estado</label>
-                <select id="estado" class="form-select">
+                <select id="estado" class="form-select" name="estado">
                     <option value="0">Selecione</option>
-                    <option value="1">Santa Catarina</option>
-                    <option value="2">Paraná</option>
+                    {% for uf in estados %}
+                        <option value="{{ uf.id }}">{{ uf.nome }}</option>
+                    {% endfor %}
+
                 </select>
             </div>
             
