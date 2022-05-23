@@ -11,7 +11,7 @@ class FormTpPessoa(ModelForm):
 class FormCliente(ModelForm):
     class Meta:
         model = Cliente
-        fields = ['id', 'nome', 'email', 'cpfcnpj', 'tp_pessoa']
+        fields = ['id', 'nome', 'email', 'cpfcnpj', 'tp_pessoa', 'estado', 'cidade']
         db_table = 'cliente'
 
 class FormFornecedor(ModelForm):

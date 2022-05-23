@@ -8,3 +8,11 @@ body{
     position: relative;
     width: 40%;
 }
+
+#pesquisa{
+    width: 80%;
+}
+
+#botaoPesquisa{
+    margin-left: 3%;
+}

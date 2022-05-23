@@ -12,6 +12,7 @@
     <div class="container mt-4">
         <button class="btn btn-primary" onclick="location.href='cadastra-categoria'">Novo</button>
     </div>
+    {% include 'form_pesquisa.html' %}
     <div class="container mt-4">
         {% if total > 0 %}
         <table class="table table-hover">
@@ -26,8 +27,8 @@
                 <tr>
                     <td>{{ categoria.nome }}</td>
                     <td class="text-center">
-                        <button class="btn btn-warning" onclick="location.href='altera-categoria'">Alterar</button>
-                        <button class="btn btn-danger" onclick="location.href='exclui-categoria'">Excluir</button>
+                        <button class="btn btn-warning" onclick="location.href='altera-categoria/{{ categoria.id }}'">Alterar</button>
+                        <button class="btn btn-danger" onclick="location.href='exclui-categoria/{{ categoria.id }}'">Excluir</button>
                     </td>
                 </tr>
                 {% endfor %}
@@ -40,8 +41,10 @@
                 </tr>
             </tfoot>
         </table>
+        {% elif procura %}
+            {% include 'sem_registro_encontrado.html' %}
         {% else %}
-        {% include 'sem_item_cadastrado.html' %}
+            {% include 'sem_item_cadastrado.html' %}
         {% endif %}
     </div>
 {% endblock %}

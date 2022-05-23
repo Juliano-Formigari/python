@@ -12,6 +12,7 @@
     <div class="container mt-4">
         <button class="btn btn-primary" onclick="location.href='cadastra-fornecedor'">Novo</button>
     </div>
+    {% include 'form_pesquisa.html' %}
     <div class="container mt-4">
         {% if total > 0 %}
         <table class="table table-hover">
@@ -27,7 +28,7 @@
                     <td>{{ fornecedor.fantasia }}</td>
                     <td class="text-center">
                         <button class="btn btn-warning" onclick="location.href='altera-fornecedor/{{ fornecedor.id }}'">Alterar</button>
-                        <button class="btn btn-danger" onclick="location.href='exclui-fornecedor'">Excluir</button>
+                        <button class="btn btn-danger" onclick="location.href='exclui-fornecedor/{{ fornecedor.id }}'">Excluir</button>
                     </td>
                 </tr>
                 {% endfor %}
@@ -40,8 +41,10 @@
                 </tr>
             </tfoot>
         </table>
+        {% elif procura %}
+            {% include 'sem_registro_encontrado.html' %}
         {% else %}
-        {% include 'sem_item_cadastrado.html' %}
+            {% include 'sem_item_cadastrado.html' %}
         {% endif %}
     </div>
 {% endblock %}

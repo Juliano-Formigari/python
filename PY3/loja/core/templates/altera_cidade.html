@@ -4,22 +4,29 @@
 
 {% block corpo %}
     <div class="form-control">
-        <form action="#">
+        <form method="post">
+            {% csrf_token %}
             <div class="text-center">
                 <h3>
-                    <label class="text-primary">Alteração de Cidade - Cidade</label>
+                    <label class="text-primary">Alteração de Cidade - {{ cidade.nome }}</label>
                 </h3>
             </div>
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" maxlength="50" required>
+                <input type="text" class="form-control" name="nome" value="{{ cidade.nome }}" id="nome" maxlength="50" required>
             </div>
             <div class="mb-3">
                 <label for="estado" class="form-label">Estado</label>
-                <select id="estado" class="form-select">
+                <select id="estado" class="form-select" name="estado">
                     <option value="0">Selecione</option>
-                    <option value="1">Santa Catarina</option>
-                    <option value="2">Paraná</option>
+                    {% for estado in estados %}
+                    {% if estadoId.id == estado.id %}
+                        <option value="{{ estado.id }}" selected>{{ estado.nome }}</option>
+                        {% else %}
+                        <option value="{{ estado.id }}">{{ estado.nome }}</option>
+                    {% endif %}
+                    {% endfor %}
+
                 </select>
             </div>
             
