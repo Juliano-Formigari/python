@@ -30,9 +30,21 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex">
+        {% if user.is_authenticated %}
+        <div class="btn-group dropstart">
+          <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Bem Vindo
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Alterar Senha</a></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}">Sair</a></li>
+          </ul>
+        </div>
+        {% else %}
+        <form class="d-flex" action="{% url 'login' %}">
           <button class="btn btn-warning" type="submit">Acessar</button>
         </form>
+        {% endif %}
       </div>
     </div>
   </nav>

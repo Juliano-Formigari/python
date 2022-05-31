@@ -33,6 +33,18 @@
                     <option value="{{ tp_pessoa.id }}">{{ tp_pessoa.descricao }}</option>
                 </select>
             </div>
+            <div class="mb-3">
+                <label for="estado" class="form-label">Estado</label>
+                <select id="estado" class="form-select" disabled>
+                    <option value="{{ estado.id }}">{{ estado.nome }}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="cidade" class="form-label">Cidade</label>
+                <select id="cidade" class="form-select" disabled>
+                    <option value="{{ cidade.id }}">{{ cidade.nome }}</option>
+                </select>
+            </div>
             
             {% include 'acoes_form_exclui.html' %}
             

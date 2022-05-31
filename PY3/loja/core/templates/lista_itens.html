@@ -8,13 +8,15 @@
             <label class="text-primary">Lista de Itens</label>
         </h3>
     </div>
-
+    {% if user.is_authenticated %}
     <div class="container mt-4">
         <button class="btn btn-primary" onclick="location.href='cadastra-item'">Novo</button>
     </div>
     {% include 'form_pesquisa.html' %}
+    {% endif %}
     <div class="container mt-4">
         {% if total > 0 %}
+        {% if user.is_authenticated %}
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -24,7 +26,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for item in item %}
+                {% for item in porPagina %}
                 <tr>
                     <td>{{ item.descricao }}</td>
                     <td>{{ item.categoria }}</td>
@@ -43,6 +45,32 @@
                 </tr>
             </tfoot>
         </table>
+        {% include 'paginacao.html' %}
+        {% else %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in item %}
+                <tr>
+                    <td>{{ item.descricao }}</td>
+                    <td>{{ item.categoria }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                        <label>Total de registros: {{ total }}</label>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        {% endif %}
         {% elif procura %}
             {% include 'sem_registro_encontrado.html' %}
         {% else %}

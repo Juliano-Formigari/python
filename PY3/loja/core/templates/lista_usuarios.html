@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for usuario in usuarios %}
+                {% for usuario in porPagina %}
                 <tr>
                     <td>{{ usuario.nome }}</td>
                     <td>{{ usuario.sobrenome }}</td>
@@ -43,6 +43,7 @@
                 </tr>
             </tfoot>
         </table>
+        {% include 'paginacao.html' %}
         {% elif procura %}
             {% include 'sem_registro_encontrado.html' %}
         {% else %}

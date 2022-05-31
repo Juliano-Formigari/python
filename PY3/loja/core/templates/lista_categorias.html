@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for categoria in categorias %}
+                {% for categoria in porPagina %}
                 <tr>
                     <td>{{ categoria.nome }}</td>
                     <td class="text-center">
@@ -41,6 +41,7 @@
                 </tr>
             </tfoot>
         </table>
+        {% include 'paginacao.html' %}
         {% elif procura %}
             {% include 'sem_registro_encontrado.html' %}
         {% else %}

@@ -8,13 +8,15 @@
             <label class="text-primary">Lista de Clientes</label>
         </h3>
     </div>
-
+    {% if user.is_authenticated %}
     <div class="container mt-4">
         <button class="btn btn-primary" onclick="location.href='cadastra-cliente'">Novo</button>
     </div>
     {% include 'form_pesquisa.html' %}
+    {% endif %}
     <div class="container mt-4">
         {% if total > 0 %}
+        {% if user.is_authenticated %}
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -25,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for cliente in cliente %}
+                {% for cliente in porPagina %}
                 <tr>
                     <td>{{ cliente.nome }}</td>
                     <td>{{ cliente.email }}</td>
@@ -45,6 +47,34 @@
                 </tr>
             </tfoot>
         </table>
+        {% else %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Tipo Pessoa</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in porPagina %}
+                <tr>
+                    <td>{{ cliente.nome }}</td>
+                    <td>{{ cliente.email }}</td>
+                    <td>{{ cliente.tp_pessoa }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">
+                        <label>Total de registros: {{ total }}</label>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        {% endif %}
+        {% include 'paginacao.html' %}
         {% elif procura %}
             {% include 'sem_registro_encontrado.html' %}
         {% else %}

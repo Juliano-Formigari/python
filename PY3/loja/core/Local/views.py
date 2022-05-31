@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .forms import FormEstado, FormCidade
 from .models import Estado, Cidade
+from ViewsProject.views import efetua_paginacao
 
 # Create your views here.
 def lista_estados(request):
@@ -12,7 +13,15 @@ def lista_estados(request):
         estado = Estado.objects.all()
 
     total = estado.count
-    return render(request, 'lista_estados.html', {'estado' : estado, 'total' : total, 'procura' : procura})
+
+    dados = {
+                'estado' : estado, 
+                'total' : total, 
+                'procura' : procura,
+                'porPagina' : efetua_paginacao(request, estado)
+            }
+
+    return render(request, 'lista_estados.html', dados)
 
 def cadastra_estado(request):
     if request.method == 'POST':
@@ -46,7 +55,15 @@ def lista_cidades(request):
         cidades = Cidade.objects.all()
 
     total = cidades.count
-    return render(request, 'lista_cidades.html', {'cidades' : cidades, 'total': total, 'procura' : procura})
+
+    dados = {
+                'cidades' : cidades, 
+                'total': total, 
+                'procura' : procura,
+                'porPagina' : efetua_paginacao(request, cidades)
+            }
+
+    return render(request, 'lista_cidades.html', dados)
 
 def cadastra_cidade(request):
     estado = Estado.objects.all()

@@ -40,6 +40,30 @@
                     {% endfor %}
                 </select>
             </div>
+            <div class="mb-3">
+                <label for="estado" class="form-label">Estado</label>
+                <select name="estado" id="estado" class="form-select">
+                    {% for estado in estados %}
+                    {% if estadoFornecedor == estado.id %}
+                        <option value="{{ estado.id }}" selected>{{ estado.nome }}</option>
+                        {% else %}
+                        <option value="{{ estado.id }}">{{ estado.nome }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="cidade" class="form-label">Cidade</label>
+                <select name="cidade" id="cidade" class="form-select">
+                    {% for cidade in cidades %}
+                    {% if cidadeFornecedor == cidade.id %}
+                        <option value="{{ cidade.id }}" selected>{{ cidade.nome }}</option>
+                        {% else %}
+                        <option value="{{ cidade.id }}">{{ cidade.nome }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
             
             {% include 'acoes_form_altera.html' %}
             

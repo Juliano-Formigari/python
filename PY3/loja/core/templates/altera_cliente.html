@@ -41,7 +41,11 @@
                 <select id="estado" class="form-select" name="estado">
                     <option value="0">Selecione</option>
                     {% for estado in estados %}
+                    {% if estadoCliente == estado.id %}
+                        <option value="{{ estado.id }}" selected>{{ estado.nome }}</option>
+                        {% else %}
                         <option value="{{ estado.id }}">{{ estado.nome }}</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
             </div>
@@ -50,7 +54,11 @@
                 <select id="cidade" class="form-select" name="cidade">
                     <option value="0">Selecione o Estado</option>
                     {% for cidade in cidades %}
+                    {% if cidadeCliente == cidade.id %}
+                        <option value="{{ cidade.id }}" selected>{{ cidade.nome }}</option>
+                        {% else %}
                         <option value="{{ cidade.id }}">{{ cidade.nome }}</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
             </div>

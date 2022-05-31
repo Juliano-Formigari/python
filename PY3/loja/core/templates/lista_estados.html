@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for estado in estado %}
+                {% for estado in porPagina %}
                 <tr>
                     <td>{{ estado.sigla }}</td>
                     <td>{{ estado.nome }}</td>
@@ -42,6 +42,7 @@
                 </tr>
             </tfoot>
         </table>
+        {% include 'paginacao.html' %}
         {% elif procura %}
             {% include 'sem_registro_encontrado.html' %}
         {% else %}

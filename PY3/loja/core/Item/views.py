@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .forms import FormCategoria, FormItem
 from .models import Categoria, Item
+from ViewsProject.views import efetua_paginacao
 
 # Create your views here.
 def lista_categorias(request):
@@ -12,7 +13,15 @@ def lista_categorias(request):
         categorias = Categoria.objects.all()
 
     total = categorias.count
-    return render(request, 'lista_categorias.html', {'categorias' : categorias, 'total' : total, 'procura' : procura})
+
+    dados = {
+                'categorias' : categorias, 
+                'total' : total, 
+                'procura' : procura,
+                'porPagina' : efetua_paginacao(request, categorias)
+            }
+
+    return render(request, 'lista_categorias.html', dados)
 
 def cadastra_categoria(request):
     if request.method == 'POST':
@@ -47,7 +56,15 @@ def lista_itens(request):
         item = Item.objects.all()
 
     total = item.count
-    return render(request, 'lista_itens.html', {'item' : item, 'total': total, 'procura' : procura})
+
+    dados = {
+                'item' : item, 
+                'total': total, 
+                'procura' : procura,
+                'porPagina' : efetua_paginacao(request, item)
+            }
+
+    return render(request, 'lista_itens.html', dados)
 
 def cadastra_item(request):
     categoria = Categoria.objects.all()
