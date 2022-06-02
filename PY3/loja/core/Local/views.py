@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .forms import FormEstado, FormCidade
 from .models import Estado, Cidade
@@ -98,3 +99,9 @@ def exclui_cidade(request, id):
         cidade.delete()
         return redirect(lista_cidades)
     return render(request, 'exclui_cidade.html', {'cidade' : cidade, 'estado' : estado})
+
+def busca_cidades(request, id):
+    estado = Estado.objects.get(id=id)
+    cidades = [cidades for cidades in Cidade.objects.filter(estado_id=estado.id)]
+
+    return HttpResponse(str(cidades))

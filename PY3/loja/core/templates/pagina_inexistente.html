@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Página inexistente{% endblock %}
+
+{% block corpo %}
+    <div class="container">
+        <div class="card rounded mx-auto d-block" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text text-primary">A página que você está tentando acessar não existe!</p>
+              <p class="card-text text-primary">Para voltar para o inicio <a href="{% url 'inicio' %}">Clique aqui</a> </p>
+            </div>
+          </div>
+        <img src="../static/images/warning.png" alt="">
+    </div>
+{% endblock %}
