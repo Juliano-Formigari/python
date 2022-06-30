@@ -102,6 +102,10 @@ def exclui_cidade(request, id):
 
 def busca_cidades(request, id):
     estado = Estado.objects.get(id=id)
-    cidades = [cidades for cidades in Cidade.objects.filter(estado_id=estado.id)]
+    cidades = Cidade.objects.filter(estado_id=estado.id)
 
-    return HttpResponse(str(cidades))
+    dados = {}
+    for cidade in cidades:
+        dados[cidade.id] = cidade.nome
+
+    return HttpResponse(str(dados))
